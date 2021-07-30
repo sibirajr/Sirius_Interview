@@ -1,0 +1,131 @@
+@mixin for-phone {
+  @media only screen and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media only screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+.header-weather {
+  background-image: linear-gradient(to right, #000, #133357);
+  color: white;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  font-size: 1em;
+  line-height: 2.5em;
+}
+
+.time-display {
+  font-weight: bold;
+}
+
+.menu {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  float: right;
+  font-size: 1.2em;
+  margin-bottom: 5%;
+  font-weight: bolder;
+  @include for-phone {
+    width: 100%;
+  }
+  @include for-desktop {
+    width: 50%;
+    margin-bottom: 5%;
+  }
+}
+
+.opening-image-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  @include for-desktop {
+    grid-template-columns: 45% 50%;
+    grid-gap: 5%;
+  }
+  @include for-phone() {
+    grid-template-rows: 45% 50%;
+    grid-gap: 5%;
+    text-align: center;
+  }
+}
+
+.opening-image {
+  background-image: url(../../assets/welcome-image.svg);
+  background-repeat: no-repeat;
+  grid-column: 1;
+  grid-row: 1;
+  @include for-desktop() {
+    background-size: contain;
+    background-position: right;
+  }
+  @include for-phone() {
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+.opening-image-text-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 1fr 1fr;
+  @include for-desktop() {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  @include for-phone() {
+    grid-column: 1;
+    grid-row: 2;
+    grid-gap: 5%;
+  }
+}
+
+.life-short-text {
+  display: grid;
+  align-items: center;
+  font-size: 3em;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.after-pandemic-text {
+  display: grid;
+  align-items: center;
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1.5em;
+}
+
+.plan-trip {
+  display: grid;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 3;
+  font-size: 1.5em;
+  @include for-desktop() {
+    align-items: start;
+    justify-content: left;
+  }
+  @include for-phone() {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.plan-trip-btn {
+  text-transform: uppercase;
+  border: none;
+  background-image: linear-gradient(to right, #000, #133357);
+  color: white;
+  font-size: 1em;
+  border-radius: 5px;
+  padding: 1em 2em 1em 2em;
+}
