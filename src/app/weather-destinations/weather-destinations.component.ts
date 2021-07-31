@@ -13,11 +13,12 @@ export class WeatherDestinationsComponent implements OnInit {
   displayTimer: string;
   weatherDetails;
   featuredDest;
+  formSubmitted: boolean = false;
 
   quoteForm = this.fb.group({
     name: ['', Validators.required],
-    contact: ['', Validators.required, Validators.email],
-    email: ['', Validators.required, Validators.pattern('[- +()0-9]+')]
+    contact: ['', [Validators.required, Validators.pattern('[- +()0-9]+')]],
+    email: ['', [Validators.required, Validators.email]]
   });
 
   constructor(
@@ -74,8 +75,9 @@ export class WeatherDestinationsComponent implements OnInit {
     }, 1000);
   }
 
-  onSubmitQuoteDetails(){
-
+  onSubmitQuoteDetails() {
+    this.quoteForm.reset();
+    this.formSubmitted = true;
   }
 
 }

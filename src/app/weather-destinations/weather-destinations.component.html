@@ -66,7 +66,7 @@
 <div class="promo-img-div">
   <img class="promo-image" src="../../assets/promo-image.png" alt="promo-image">
   <div class="plan-trip-text">PLAN A TRIP</div>
-  <div class="memorable-trip-text">Make your vacation the most memorable one
+  <div class="memorable-trip-text">Make your vacation the most<br> memorable one
   </div>
 </div>
 
@@ -79,16 +79,72 @@
 
     <label class="form-label" for="name">Your Name </label>
     <input id="name" type="text" formControlName="name" required>
+    <div
+      *ngIf="quoteForm.controls['name'].invalid && quoteForm.controls['name'].errors && (quoteForm.controls['name'].dirty || quoteForm.controls['name'].touched)">
+      <span class="form-error-field">
+        Name is required.
+      </span>
+    </div>
 
     <label class="form-label" for="name">Contact Number </label>
-    <input id="name" type="text" formControlName="contact" required>
+    <input id="contact" type="text" formControlName="contact" required>
+    <div
+      *ngIf="quoteForm.controls['contact'].invalid && quoteForm.controls['contact'].errors && (quoteForm.controls['contact'].dirty || quoteForm.controls['contact'].touched)">
+      <small class="form-error-field">
+        Contact Number is required or invalid.
+      </small>
+    </div>
 
     <label class="form-label" for="name">Email </label>
-    <input id="name" type="email" formControlName="email" required>
-
+    <input id="email" type="email" formControlName="email" required>
+    <div
+      *ngIf="quoteForm.controls['email'].invalid && quoteForm.controls['email'].errors && (quoteForm.controls['email'].dirty || quoteForm.controls['email'].touched)">
+      <small class="form-error-field">
+        Email is required or invalid.
+      </small>
+    </div>
+    <div *ngIf="formSubmitted" class="form-submit-success">
+      We hear you! We will get back to you for planning your vacation.
+    </div>
     <div class="submit-div">
       <button class="submit-btn" type="submit" [disabled]="!quoteForm.valid">SUBMIT</button>
     </div>
 
   </form>
+</div>
+
+<div class="footer-grid">
+  <div class="footer-content-A list-height">
+    <div class="footer-content-header">Tripzone</div>
+    <div> About</div>
+    <div>Awards</div>
+    <div> Contact Us</div>
+    <div> Feedback</div>
+  </div>
+
+  <div class="footer-content-B list-height">
+    <div class="footer-content-header">Main Offices</div>
+    <div> The United States</div>
+    <div>India</div>
+    <div>Brazil</div>
+    <div>Canada</div>
+  </div>
+
+  <div class="footer-content-C list-height">
+    <div class="footer-content-header">Sub Offices</div>
+    <div>Australia</div>
+    <div>England</div>
+    <div>France</div>
+    <div>Germany</div>
+  </div>
+
+  <div class="footer-content-D list-height">
+    <div class="footer-content-header">Disclaimer</div>
+    <div class="disclaimer-color"> This layout is created as a part of Sirius UI
+      Recruitments. <br>
+      <div> All the above content has no direct
+        relation with Sirius business
+      </div>
+    </div>
+  </div>
 </div>
