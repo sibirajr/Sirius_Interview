@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { WeatherDestinationsService } from './weather-destinations.service';
 
 @Component({
@@ -13,7 +14,16 @@ export class WeatherDestinationsComponent implements OnInit {
   weatherDetails;
   featuredDest;
 
-  constructor(public weatherDestService: WeatherDestinationsService) { }
+  quoteForm = this.fb.group({
+    name: ['', Validators.required],
+    contact: ['', Validators.required, Validators.email],
+    email: ['', Validators.required, Validators.pattern('[- +()0-9]+')]
+  });
+
+  constructor(
+    public weatherDestService: WeatherDestinationsService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.calculateDisplayTimer();
@@ -62,6 +72,10 @@ export class WeatherDestinationsComponent implements OnInit {
         this.displayTimer = "EXPIRED";
       }
     }, 1000);
+  }
+
+  onSubmitQuoteDetails(){
+
   }
 
 }

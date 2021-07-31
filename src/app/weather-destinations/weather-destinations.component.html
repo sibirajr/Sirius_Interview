@@ -9,13 +9,13 @@
 
 <div class="menu">
   <div>
-    WEATHER
+    <a href="#weather">WEATHER</a>
   </div>
   <div>
-    DESTINATIONS
+    <a href="#destinations">DESTINATIONS</a>
   </div>
   <div>
-    GET A QUOTE
+    <a href="#quote">GET A QUOTE</a>
   </div>
 </div>
 
@@ -43,7 +43,7 @@
   the weather channel
 </div>
 
-<div class="weather-display">
+<div id='weather' class="weather-display">
   <div class="weather-grid-display" *ngFor="let wd of weatherDetails">
     <div>{{wd.city}}</div>
     <img src="../../assets/icon-party-sunny.svg" alt="weather-pattern">
@@ -51,7 +51,7 @@
   </div>
 </div>
 
-<div class="featuredDestText">
+<div id="destinations" class="featuredDestText">
   Featured Destinations
 </div>
 <div class="featured-city-display">
@@ -68,4 +68,27 @@
   <div class="plan-trip-text">PLAN A TRIP</div>
   <div class="memorable-trip-text">Make your vacation the most memorable one
   </div>
+</div>
+
+<div class="form-heading">
+  Travelling as a group? Get a Quote
+</div>
+
+<div id="quote" class="form-div">
+  <form [formGroup]="quoteForm" (ngSubmit)="onSubmitQuoteDetails()">
+
+    <label class="form-label" for="name">Your Name </label>
+    <input id="name" type="text" formControlName="name" required>
+
+    <label class="form-label" for="name">Contact Number </label>
+    <input id="name" type="text" formControlName="contact" required>
+
+    <label class="form-label" for="name">Email </label>
+    <input id="name" type="email" formControlName="email" required>
+
+    <div class="submit-div">
+      <button class="submit-btn" type="submit" [disabled]="!quoteForm.valid">SUBMIT</button>
+    </div>
+
+  </form>
 </div>
