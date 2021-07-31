@@ -37,5 +37,35 @@
       </button>
     </div>
   </div>
+</div>
 
+<div class="weather-grid">
+  the weather channel
+</div>
+
+<div class="weather-display">
+  <div class="weather-grid-display" *ngFor="let wd of weatherDetails">
+    <div>{{wd.city}}</div>
+    <img src="../../assets/icon-party-sunny.svg" alt="weather-pattern">
+    <div>{{wd.temp_Celsius}}</div>
+  </div>
+</div>
+
+<div class="featuredDestText">
+  Featured Destinations
+</div>
+<div class="featured-city-display">
+  <div *ngFor="let fd of featuredDest">
+    <div class="image-featured-div">
+      <img class="featured-image" [src]=fd.imageUrl alt="featured-city">
+    </div>
+    <div class="featured-img-font">{{fd.city}}</div>
+  </div>
+</div>
+
+<div class="promo-img-div">
+  <img class="promo-image" src="../../assets/promo-image.png" alt="promo-image">
+  <div class="plan-trip-text">PLAN A TRIP</div>
+  <div class="memorable-trip-text">Make your vacation the most memorable one
+  </div>
 </div>

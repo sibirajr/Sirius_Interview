@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherDestinationsService } from './weather-destinations.service';
 
 @Component({
   selector: 'app-weather-destinations',
@@ -9,17 +10,35 @@ export class WeatherDestinationsComponent implements OnInit {
 
 
   displayTimer: string;
+  weatherDetails;
+  featuredDest;
 
-  constructor() { }
+  constructor(public weatherDestService: WeatherDestinationsService) { }
 
   ngOnInit(): void {
     this.calculateDisplayTimer();
+
+    this.getWeather();
+    this.getFeaDest()
+  }
+
+  getWeather() {
+    this.weatherDestService.fetchWeatherDetails().subscribe((res) => {
+      this.weatherDetails = res.result
+    })
+  }
+
+  getFeaDest() {
+    this.weatherDestService.fetchFeaturedDest().subscribe((res) => {
+      console.log(res)
+      this.featuredDest = res.result
+    })
   }
 
   calculateDisplayTimer() {
-    var countDownDate = new Date("Aug 10, 2021 18:00:00").getTime();
+    var countDownDate = new Date("Aug 8, 2021 18:00:00").getTime();
     // Update the count down every 1 second
-    var x = setInterval( ()=> {
+    var x = setInterval(() => {
 
       // Get today's date and time
       var now = new Date().getTime();

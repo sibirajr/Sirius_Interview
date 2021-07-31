@@ -51,7 +51,7 @@
     grid-gap: 5%;
   }
   @include for-phone() {
-    grid-template-rows: 45% 50%;
+    grid-template-rows: 0.5fr 1fr;
     grid-gap: 5%;
     text-align: center;
   }
@@ -65,6 +65,7 @@
   @include for-desktop() {
     background-size: contain;
     background-position: right;
+    margin-left: 10%;
   }
   @include for-phone() {
     background-size: contain;
@@ -74,17 +75,20 @@
 
 .opening-image-text-grid {
   display: grid;
-  width: 100%;
+
   height: 100%;
   grid-template-rows: 1fr 1fr 1fr;
   @include for-desktop() {
     grid-column: 2;
     grid-row: 1;
+    width: 80%;
+    grid-template-rows: 1fr 1fr 1fr;
   }
   @include for-phone() {
     grid-column: 1;
     grid-row: 2;
-    grid-gap: 5%;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 100%;
   }
 }
 
@@ -128,4 +132,140 @@
   font-size: 1em;
   border-radius: 5px;
   padding: 1em 2em 1em 2em;
+}
+
+.weather-grid {
+  display: grid;
+  width: 90%;
+  height: 10vh;
+  background-image: linear-gradient(to right, #000, #133357);
+  color: white;
+  text-transform: uppercase;
+  font-size: 2em;
+  align-items: center;
+  margin: 5% 5% 0% 5%;
+  text-transform: uppercase;
+  text-indent: 5%;
+}
+
+.weather-display {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: calc(50%);
+  margin: 0 5% 0 5%;
+}
+
+.weather-grid-display {
+  @include for-desktop() {
+    width: calc((100%) / 4);
+  }
+  @include for-phone() {
+    width: calc((100%) / 2);
+  }
+  height: 25vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.weather-grid-display:nth-child(1) {
+  background-color: #0d7e88;
+}
+
+.weather-grid-display:nth-child(2) {
+  background-color: #d09378;
+}
+
+.weather-grid-display:nth-child(3) {
+  background-color: #405b5d;
+}
+
+.weather-grid-display:nth-child(4) {
+  background-color: #74a748;
+}
+
+.featuredDestText {
+  display: grid;
+  align-items: center;
+  font-size: 2em;
+  margin: 5%;
+}
+
+.featured-city-display {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 5% 0 5%;
+  overflow: auto;
+}
+
+.image-featured-div {
+  @include for-desktop() {
+    width: 25vw;
+    height: 40vh;
+  }
+  @include for-phone() {
+    width: 35vw;
+    height: 35vh;
+  }
+  margin-right: 5vw;
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 10px 0;
+}
+
+.featured-img-font {
+  font-size: 1.2em;
+  margin: 5% 0 10% 0;
+}
+
+.promo-img-div {
+  position: relative;
+  text-align: center;
+  color: white;
+  @include for-desktop() {
+    width: 100vw;
+    height: 90vh;
+  }
+  @include for-phone() {
+    width: 100vw;
+    height: 50vh;
+  }
+}
+
+.promo-image {
+  width: 100%;
+  height: 100%;
+}
+
+.plan-trip-text {
+  position: absolute;
+  @include for-desktop() {
+    bottom: 25%;
+    left: 2%;
+    font-size: 3em;
+  }
+  @include for-phone() {
+    bottom: 40%;
+    left: 5%;
+    font-size: 2em;
+  }
+}
+
+.memorable-trip-text {
+  position: absolute;
+  @include for-desktop() {
+    bottom: 17%;
+    left: 2%;
+    font-size: 1.5em;
+    letter-spacing: 0.15em;
+  }
+  @include for-phone() {
+    bottom: 25%;
+    left: 5%;
+    font-size: 1.5em;
+  }
 }
