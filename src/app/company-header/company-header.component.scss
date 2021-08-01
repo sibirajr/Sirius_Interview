@@ -1,0 +1,48 @@
+@mixin for-phone {
+  @media only screen and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media only screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+.header-weather {
+  background-image: linear-gradient(to right, #000, #133357);
+  color: white;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  font-size: 1em;
+  line-height: 2.5em;
+}
+
+.time-display {
+  font-weight: bold;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  float: right;
+  font-size: 1.2em;
+  margin-bottom: 5%;
+  font-weight: bolder;
+  @include for-phone {
+    width: 100%;
+  }
+  @include for-desktop {
+    width: 50%;
+    margin-bottom: 5%;
+  }
+}

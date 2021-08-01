@@ -1,0 +1,43 @@
+
+<div class="form-heading">
+  Travelling as a group? Get a Quote
+</div>
+
+<div  class="form-div">
+  <form [formGroup]="quoteForm" (ngSubmit)="onSubmitQuoteDetails()">
+
+    <label class="form-label" for="name">Your Name </label>
+    <input id="name" type="text" formControlName="name" required>
+    <div
+      *ngIf="quoteForm.controls['name'].invalid && quoteForm.controls['name'].errors && (quoteForm.controls['name'].dirty || quoteForm.controls['name'].touched)">
+      <span class="form-error-field">
+        Name is required.
+      </span>
+    </div>
+
+    <label class="form-label" for="name">Contact Number </label>
+    <input id="contact" type="text" formControlName="contact" required>
+    <div
+      *ngIf="quoteForm.controls['contact'].invalid && quoteForm.controls['contact'].errors && (quoteForm.controls['contact'].dirty || quoteForm.controls['contact'].touched)">
+      <small class="form-error-field">
+        Contact Number is required or invalid.
+      </small>
+    </div>
+
+    <label class="form-label" for="name">Email </label>
+    <input id="email" type="email" formControlName="email" required>
+    <div
+      *ngIf="quoteForm.controls['email'].invalid && quoteForm.controls['email'].errors && (quoteForm.controls['email'].dirty || quoteForm.controls['email'].touched)">
+      <small class="form-error-field">
+        Email is required or invalid.
+      </small>
+    </div>
+    <div *ngIf="formSubmitted" class="form-submit-success">
+      We hear you! We will get back to you for planning your vacation.
+    </div>
+    <div class="submit-div">
+      <button class="submit-btn" type="submit" [disabled]="!quoteForm.valid">SUBMIT</button>
+    </div>
+
+  </form>
+</div>

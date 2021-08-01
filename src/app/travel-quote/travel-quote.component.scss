@@ -1,0 +1,82 @@
+@mixin for-phone {
+  @media only screen and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media only screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+.form-div {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.form-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.5em;
+  color: #bcbcbc;
+  margin-top: 5%;
+}
+
+input {
+  @include for-desktop() {
+    width: 50vw;
+  }
+  @include for-phone() {
+    width: 90vw;
+  }
+  box-sizing: border-box;
+  height: 4em;
+  margin-top: 2%;
+  padding: 0.5rem;
+  border-color: #bcbcbc;
+  border-width: 4px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  text-transform: uppercase;
+  border: none;
+  background-image: linear-gradient(to right, #000, #133357);
+  color: white;
+  font-size: 1em;
+  border-radius: 5px;
+  padding: 0.5em 2em 0.5em 2em;
+}
+
+.submit-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5%;
+}
+
+.form-error-field {
+  font-size: 0.5em;
+  color: #c70d0d;
+}
+
+.form-submit-success {
+  font-size: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4vw;
+  margin: 5% 0;
+  background-color: #c7f3be;
+}
